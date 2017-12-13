@@ -1,0 +1,85 @@
+.body {
+	display: inline-block;
+	width: 100%;
+}
+
+.dominos {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.list {
+	width: 600px;
+}
+
+.dominoN, .dominoC {
+	border: 1px solid;
+	margin-bottom: 10px;
+	display: inline-block;
+	width: 120px;
+	height: 60px;
+}
+
+.dominoC2 {
+	border: 1px solid;
+	display: inline-block;
+	width: 120px;
+	height: 120px;
+}
+
+.domino {
+	width: 60px;
+	height: 60px;
+}
+
+.pion {
+	position:absolute;
+	z-index:10;
+	width: 60px;
+	height: 60px;
+}
+
+#listScore {
+	margin-top: 30px;
+}
+
+.boardList {	
+	width: 500px;
+	height: 500px;
+	display: inline-block;
+}
+
+#boards {
+	width: 500px;
+	height: 320px;
+	display: inline-block;
+}
+
+.board {
+	width: 520px;
+	display: inline-block;
+	margin-right: 5px;
+}
+
+.boardtarget {
+	width: 55px;
+	height: 50px;
+	border: 1px soli;
+}
+
+.buttonBoard {
+	width: 150px;
+	height: 30px;
+	border: 0px;
+	margin-bottom: 10px;
+}
+
+.score {
+	font-size: 30px;
+	font-weight: bold;
+	vertical-align: top;
+}
+
+h3 {
+	margin-bottom: 0px;
+}
