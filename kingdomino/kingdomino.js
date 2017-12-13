@@ -241,11 +241,43 @@ function isInKindom(x, y) {
 function updateScore() {
 	var s = 0;	
 	for (var i=0;i<9;i++)
-		for (var j=0;j<9;j++)
-			s += readValue($("#target"+pos[current]+"_"+i+"_"+j));
+		for (var j=0;j<9;j++) {
+			var val = readValue($("#target"+pos[current]+"_"+i+"_"+j));
+			var size = sizeOfZone(i,j);
+			s += (val*size);
+		}
 	console.log("score = "+s);
 	score[pos[current]] = s;
 	$('#score'+(pos[current])).html(score[pos[current]]);
+}
+
+function sizeOfZone(x, y) {
+	var t  = readType($("#target"+pos[current]+"_"+x+"_"+y));
+	var b = new Array;
+	for (var i=0;i<9;i++) {
+		b[i] = new Array;
+		for (var j=0;j<9;j++) {
+			if (readType($("#target"+pos[current]+"_"+i+"_"+j))==t) b[i][j] = 0;
+		}
+	}
+	b[x][y] = 1;
+	var count = 1;
+	var find = true;
+	while(find) {
+		find = false;
+		for (var i=0;i<9;i++)
+			for (var j=0;j<9;j++) {
+				if (b[i][j]==0) {
+					if ((i<8 && b[i+1][j]==1) || (i>0 && b[i-1][j]==1) || (j<8 && b[i][j+1]==1) || (j>0 && b[i][j-1])==1) {
+						find = true;
+						b[i][j] = 1;
+						count++;
+					}
+					
+				}
+			}
+	}
+	return count;
 }
 
 function hideBoard(i) {
